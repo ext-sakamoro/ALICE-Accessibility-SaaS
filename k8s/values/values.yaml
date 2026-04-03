@@ -1,19 +1,17 @@
 global:
-  domain: ALICE_ACCESSIBILITY.alice-platform.com
+  domain: alice-accessibility.alice-platform.com
 frontend:
   replicas: 2
-  image: ALICE_ACCESSIBILITY/frontend:latest
+  image: alice-accessibility/frontend:latest
   resources: { requests: { cpu: 100m, memory: 128Mi }, limits: { cpu: 500m, memory: 512Mi } }
 apiGateway:
   replicas: 2
-  image: ALICE_ACCESSIBILITY/api-gateway:latest
+  image: alice-accessibility/api-gateway:latest
   resources: { requests: { cpu: 200m, memory: 256Mi }, limits: { cpu: 1000m, memory: 1Gi } }
 coreEngine:
   replicas: 2
-  image: ALICE_ACCESSIBILITY/core-engine:latest
+  image: alice-accessibility/core-engine:latest
   resources: { requests: { cpu: 500m, memory: 512Mi }, limits: { cpu: 2000m, memory: 2Gi } }
-redis:
-  image: redis:7-alpine
 autoscaling:
   enabled: true
   minReplicas: 2
